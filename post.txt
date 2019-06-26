@@ -1,0 +1,47 @@
+Users Table
+
+-UserID        (char) (PK)
+-UserName      (char)
+-ProfilePicRef (char)
+
+
+Reactions Table
+-ReactionType  (char) (PK)
+
+PostDetails Table
+
+-UserID        (char)     (FK from Users)
+-PostID        (char) (PK)
+-Description   (char)
+-mediaLink     (char)
+-PostTime      (Timestamp)
+
+PostReactionDetails Table
+
+-PostID        (char) (PK) (FK from PostDetails)
+-ReactorID     (char) (PK) (FK from Users)
+-ReactionType  (char)       (FK from Reactions)
+
+
+PostComments Table
+
+-ID            (char)
+-type          (int)
+-CommentID     (char) (PK)
+-Comment       (char)
+-CommenterID   (char)      (FK from Users)
+-CommentTime   (Timestamp)
+
+
+CommentReactions Table
+
+-CommentID     (char) (PK) (FK from PostComments)
+-ReactorID     (char) (PK)
+-ReactionType  (char)       (FK from Reactions)
+
+
+ReplyReactions Table
+
+-ReplyID       (char) (PK)  (FK from CommentReplies)
+-ReactorID     (char) (PK)  (FK from Users)
+-ReactionType    (char)      (FK from Reactions)
